@@ -39,8 +39,10 @@ def visualize_latent_1D(Z, labels, ylabel, clabel, savepath=None, colormap=None)
 
     if savepath:
         plt.savefig(savepath)
+    else:
+        plt.show()
 
-    plt.show()
+    plt.close()
 
 
 def visualize_latent(Z, labels, label_name, savepath=None, colormap=None):
@@ -61,10 +63,12 @@ def visualize_latent(Z, labels, label_name, savepath=None, colormap=None):
 
     ax.legend(*scatter.legend_elements(), loc="upper right")
 
-    plt.xticks([])
-    plt.yticks([])
+    #plt.xticks([])
+    #plt.yticks([])
 
     if savepath:
         plt.savefig(savepath)
+    else:
+        plt.show()
 
-    plt.show()
+    plt.close()
