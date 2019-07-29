@@ -17,7 +17,6 @@ def visualize_samples(iter):
 
 
 def visualize_latent_1D(Z, labels, ylabel, clabel, savepath=None, colormap=None):
-
     fig, ax = plt.subplots(figsize=(10, 10))
 
     x = labels[ylabel]
@@ -46,9 +45,7 @@ def visualize_latent_1D(Z, labels, ylabel, clabel, savepath=None, colormap=None)
 
 
 def visualize_latent(Z, labels, label_name, savepath=None, colormap=None):
-
     fig, ax = plt.subplots(figsize=(10, 10))
-
     x = Z[:, 0]
     y = Z[:, 1]
 
@@ -58,13 +55,8 @@ def visualize_latent(Z, labels, label_name, savepath=None, colormap=None):
         cmap = 'Set1'
 
     clabels = labels[label_name]
-
     scatter = ax.scatter(x, y, c=clabels, cmap=cmap)
-
     ax.legend(*scatter.legend_elements(), loc="upper right")
-
-    #plt.xticks([])
-    #plt.yticks([])
 
     if savepath:
         plt.savefig(savepath)
@@ -72,3 +64,23 @@ def visualize_latent(Z, labels, label_name, savepath=None, colormap=None):
         plt.show()
 
     plt.close()
+
+
+def categorical_plot(x_data, y_data, categories, ax, tensors=False, savepath=None):
+    if tensors:
+        x_data = x_data.cpu().numpy()
+        y_data = y_data.cpu().numpy()
+        categories = categories.cpu().numpy()
+
+    for c in np.unique(categories):
+        indices = np.where(categories == c)
+
+        x = x_data[indices]
+        y = y_data[indices]
+
+        order = np.argsort(x)
+
+        ax.plot(x[order], y[order])
+
+    if not savepath == None:
+        plt.savefig(savepath)
