@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 digit_counts = {'1': 100, '2': 100, '3': 100, '4': 100, '5': 100, '6': 100, '7': 100, '8': 100, '9': 100}
 
 source_location = '../../data/mnist_data/trainingSet'
-generated_destination_dir = '../../mnist_gen'
+generated_destination_dir = '../../data/mnist_gen'
 
 if not os.path.exists(generated_destination_dir):
     os.mkdir(generated_destination_dir)

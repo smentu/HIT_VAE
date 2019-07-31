@@ -65,6 +65,27 @@ def visualize_latent(Z, labels, label_name, savepath=None, colormap=None):
 
     plt.close()
 
+def visualize_latent_2D(Z, labels, savepath=None, colormap=None):
+    fig, ax = plt.subplots(figsize=(10, 10))
+    x = Z[:, 0]
+    y = Z[:, 1]
+
+    if colormap:
+        cmap = colormap
+    else:
+        cmap = 'Set1'
+
+    clabels = labels
+    scatter = ax.scatter(x, y, c=clabels, cmap=cmap)
+    ax.legend(*scatter.legend_elements(), loc="upper right")
+
+    if savepath:
+        plt.savefig(savepath)
+    else:
+        plt.show()
+
+    plt.close()
+
 
 def categorical_plot(x_data, y_data, categories, ax, tensors=False, savepath=None):
     if tensors:
