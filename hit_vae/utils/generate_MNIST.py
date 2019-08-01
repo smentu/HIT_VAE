@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # script for processing MNIST images into a form that is easily fed into torch models
 
-digit_counts = {'1': 100, '2': 100, '3': 100, '4': 100, '5': 100, '6': 100, '7': 100, '8': 100, '9': 100}
+digit_counts = {'0': 100, '1': 100, '2': 100, '3': 100, '4': 100, '5': 100, '6': 100, '7': 100, '8': 100, '9': 100}
 
 source_location = '../../data/mnist_data/trainingSet'
 generated_destination_dir = '../../data/mnist_gen'
